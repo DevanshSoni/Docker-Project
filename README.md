@@ -5,7 +5,10 @@ our project or product development process Agile.
 This repository contains one  project of Docker
 
 Project Description :- 
-
+  
+  docker project.tar.gz.bz2 file contains the project in which i've integrated flask and sql containers. 
+  Unzip this file using command  " bzip2 -d docker project.tar.gz.bz2 "
+  
   In this project i've integrated WordPress with MySql where i ran both of these technologies on two separate containers.
   these two containers are working with each other to provide a best working environment for the wordpress user.
 
