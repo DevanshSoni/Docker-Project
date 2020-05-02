@@ -1,0 +1,32 @@
+version: "3"
+services:
+        databaseos:
+                image: mysql:5.7
+                volumes:
+                  - mysql_storage:/var/lib/mysql
+                restart: always
+                environment:
+                  MYSQL_ROOT_PASSWORD: redhat
+                  MYSQL_USER: devansh
+                  MYSQL_PASSWORD: devsoni
+                  MYSQL_DATABASE: MAISM
+
+
+        wordpressos:
+                image: wordpress:5.1.1-php7.3-apache
+                restart: always
+                depends_on:
+                  - databaseos
+                ports:
+                  - 4343:80
+                environment:
+                        WORDPRESS_DB_HOST: databaseos
+                        WORDPRESS_DB_USER: devansh
+                        WORDPRESS_DB_PASSWORD: devsoni
+                        WORDPRESS_DB_NAME: MAISM
+                volumes:
+                  - new_storage:/var/www/html
+
+volumes:
+        new_storage:
+        mysql_storage:
